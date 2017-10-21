@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class FindPath : MonoBehaviour {
+
     public Transform target;
+
     NavMeshAgent agent;
 
 	// Use this for initialization
@@ -14,6 +16,10 @@ public class FindPath : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        agent.SetDestination(target.position);
-	}
+        //move
+        if (target != null )
+        {
+            agent.SetDestination(target.position);
+        }
+    }
 }
