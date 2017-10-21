@@ -27,7 +27,6 @@ public class FindFood : MonoBehaviour {
             target = findfirstFood();
             if(target)
                 findPath.target = target;
-            print(target);
         }
     }
 
