@@ -49,7 +49,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: -2349822300998112484, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4224656582980838
 Transform:
@@ -186,7 +186,7 @@ MonoBehaviour:
   critterType: Vegetable
   eatingRange: 0.5
   eatHPPerSecond: 5
-  eatHP2Energy: 2
+  eatHP2Energy: 10
   hungerThreshold: 40
   isHungry: 0
 --- !u!136 &136193926011079940
@@ -211,8 +211,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 2
+  m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0

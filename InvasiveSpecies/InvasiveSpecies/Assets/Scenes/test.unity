@@ -95,19 +95,19 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 0.17
+    agentHeight: 1.81
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.05666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: e1c9423898538b949bf36a1844320bf4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 55dd2bdeec911af4aa8576d817d8df43, type: 2}
 --- !u!1 &94654745
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ Prefab:
     - target: {fileID: 114783499883938380, guid: db9201ed1eda4ef4b82e4992817249d5,
         type: 2}
       propertyPath: eatingRange
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -346,7 +346,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4124063366744862, guid: 45b3edeb4bb811d4b80c5a3f090bbfb8, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5.8629713
+      value: -4.99
       objectReference: {fileID: 0}
     - target: {fileID: 4124063366744862, guid: 45b3edeb4bb811d4b80c5a3f090bbfb8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -467,7 +467,7 @@ Transform:
   m_GameObject: {fileID: 1256837933}
   m_LocalRotation: {x: -0, y: 0.38268343, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1476394, y: 1.14764, z: 1.14764}
   m_Children: []
   m_Father: {fileID: 94654746}
   m_RootOrder: 5
@@ -573,6 +573,16 @@ Prefab:
     - target: {fileID: 1944238461533576, guid: 9d71b374b564f314b894f66698a0ab82, type: 2}
       propertyPath: m_Name
       value: Herbivore (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114917677410460484, guid: 9d71b374b564f314b894f66698a0ab82,
+        type: 2}
+      propertyPath: eatHP2Energy
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114917677410460484, guid: 9d71b374b564f314b894f66698a0ab82,
+        type: 2}
+      propertyPath: eatingRange
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d71b374b564f314b894f66698a0ab82, type: 2}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Type;
 
 public class Critter : MonoBehaviour {
 
@@ -23,7 +24,8 @@ public class Critter : MonoBehaviour {
 
 	public List<WeightedDirection> desiredDirections;
 
-    public List<NavMeshPath> paths;
+    public Dictionary<string, NavMeshPath> paths;
+    NavMeshAgent agent;
 
 
     // Use this for initialization
@@ -38,6 +40,10 @@ public class Critter : MonoBehaviour {
 		crittersByType[critterType].Add(this);
 
         baseSpeed = speed;
+
+        agent = GetComponent<NavMeshAgent>();
+
+        paths = new Dictionary<string, NavMeshPath>();
 	}
 
 	void OnDestroy() {
@@ -73,53 +79,73 @@ public class Critter : MonoBehaviour {
 		Vector3 dir = Vector3.zero;
         float weight = 0;
 
-		foreach(WeightedDirection wd in desiredDirections) {
-			// NOTE: If you are implementing EXCLUSIVE/FALLBACK blend modes, check here.
+        //set navigation path
+        if (!agent)
+            return;
 
-            if (wd.blending == WeightedDirection.BlendingType.EXCLUSIVE)
-            {
-                //weight = wd.weight;
-                //dir = wd.direction;
-                //speed = wd.speed;
+        if (paths.ContainsKey(PathType.EVADE.ToString()))
+        {
+            agent.SetPath(paths[PathType.EVADE.ToString()]);
 
-                dir += wd.direction * wd.weight;
+        }
+        else if (paths.ContainsKey(PathType.SEEKFOOD.ToString()))
+        {
+            agent.SetPath(paths[PathType.SEEKFOOD.ToString()]);
+        }
+        else if (paths.ContainsKey(PathType.WANDER.ToString()))
+        {
+            agent.SetPath(paths[PathType.WANDER.ToString()]);
+           
+        }
 
-                foreach (WeightedDirection w in desiredDirections)
-                {
-                    if (wd != w && w.blending == WeightedDirection.BlendingType.EXCLUSIVE)
-                    {
-                        //if (wd.weight < w.weight)
-                        //{
-                        //    weight = w.weight;
-                        //    dir = w.direction;
-                        //    speed = w.speed;
-                        //}
 
-                        dir += w.direction * w.weight;
-                    }
-                }
+        //foreach(WeightedDirection wd in desiredDirections) {
+        //	// NOTE: If you are implementing EXCLUSIVE/FALLBACK blend modes, check here.
 
-                //dir = dir * weight;
-                speed = baseSpeed;
-                break;
-            }
-            else if (wd.blending == WeightedDirection.BlendingType.BLEND)
-			    dir += wd.direction * wd.weight;
-            else
-                dir = wd.direction * wd.weight;
+        //          if (wd.blending == WeightedDirection.BlendingType.EXCLUSIVE)
+        //          {
+        //              //weight = wd.weight;
+        //              //dir = wd.direction;
+        //              //speed = wd.speed;
 
-            speed = wd.speed;
-		}
+        //              dir += wd.direction * wd.weight;
 
-		velocity = Vector3.Lerp(velocity, dir.normalized * speed, Time.deltaTime * 5f);
+        //              foreach (WeightedDirection w in desiredDirections)
+        //              {
+        //                  if (wd != w && w.blending == WeightedDirection.BlendingType.EXCLUSIVE)
+        //                  {
+        //                      //if (wd.weight < w.weight)
+        //                      //{
+        //                      //    weight = w.weight;
+        //                      //    dir = w.direction;
+        //                      //    speed = w.speed;
+        //                      //}
 
-		// Move in the desired direction at our top speed.
-		// NOTE: WeightedDirection does include a currently unused parameter for speed
-		transform.Translate( velocity * Time.deltaTime );
+        //                      dir += w.direction * w.weight;
+        //                  }
+        //              }
 
-        // foreach (var critter in desiredDirections)
-        //Debug.Log(critter.direction);
-        Debug.Log(speed);
+        //              //dir = dir * weight;
+        //              speed = baseSpeed;
+        //              break;
+        //          }
+        //          else if (wd.blending == WeightedDirection.BlendingType.BLEND)
+        //	    dir += wd.direction * wd.weight;
+        //          else
+        //              dir = wd.direction * wd.weight;
+
+        //          speed = wd.speed;
+        //}
+
+        //velocity = Vector3.Lerp(velocity, dir.normalized * speed, Time.deltaTime * 5f);
+
+        //// Move in the desired direction at our top speed.
+        //// NOTE: WeightedDirection does include a currently unused parameter for speed
+        //transform.Translate( velocity * Time.deltaTime );
+
+        //      // foreach (var critter in desiredDirections)
+        //      //Debug.Log(critter.direction);
+        //      Debug.Log(speed);
     }
 
     // The base critter script probably doesn't need to know about collisions.

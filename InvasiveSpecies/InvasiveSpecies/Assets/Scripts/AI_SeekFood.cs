@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
+using Type;
 
 public class AI_SeekFood : MonoBehaviour {
 
@@ -16,11 +18,17 @@ public class AI_SeekFood : MonoBehaviour {
 
 	Critter myCritter;
 
+    NavMeshAgent agent;
+    
+
 	// Use this for initialization
 	void Start () {
 		myCritter = GetComponent<Critter>();
 
         speed = myCritter.speed;
+
+        if (GetComponent<NavMeshAgent>())
+            agent = GetComponent<NavMeshAgent>();
 	}
 
 	void DoAIBehaviour() {
@@ -61,7 +69,8 @@ public class AI_SeekFood : MonoBehaviour {
                 continue;
 			}
 
-			float d = Vector3.Distance(this.transform.position, c.transform.position);
+			float d = Vector3.Distance(Vector3.ProjectOnPlane(this.transform.position, Vector3.down), 
+                Vector3.ProjectOnPlane(c.transform.position, Vector3.down));
 
             //Debug.Log("eat dammit!" + d);
 
@@ -77,14 +86,7 @@ public class AI_SeekFood : MonoBehaviour {
 			return;
 		}
 
-
-        //move to target
-        //if (closest != null)
-        //{
-        //    if (GetComponent<FindPath>())
-        //        GetComponent<FindPath>().target = closest.transform;
-        //}
-
+        print(dist);
 		if(dist < eatingRange) {
 			float hpEaten = Mathf.Clamp(eatHPPerSecond * Time.deltaTime, 0, closest.health);
 			closest.health -= hpEaten;
@@ -95,15 +97,33 @@ public class AI_SeekFood : MonoBehaviour {
 
 			Vector3 dir = closest.transform.position - this.transform.position;
 
-            WeightedDirection wd;
+            //WeightedDirection wd;
 
             if (isHungry)
-                wd = new WeightedDirection( dir, 1, 1.5f, WeightedDirection.BlendingType.EXCLUSIVE );
+            {
+                // wd = new WeightedDirection( dir, 1, 1.5f, WeightedDirection.BlendingType.EXCLUSIVE );
+                if (agent)
+                {
+                    NavMeshPath path = new NavMeshPath();
+                    agent.CalculatePath(dir * 0.1f + transform.position, path);
+                    if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()))
+                        myCritter.paths[PathType.SEEKFOOD.ToString()] = path;
+                    else
+                        myCritter.paths.Add(PathType.SEEKFOOD.ToString(), path);
+                }
+            }
+            //clear path
             else
-                wd = new WeightedDirection(dir, 0);
+            {
+                if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()))
+                    myCritter.paths.Clear();
+            }
 
-            myCritter.desiredDirections.Add( wd );
+            //else
+            //wd = new WeightedDirection(dir, 0);
 
-		}
-	}
+            //myCritter.desiredDirections.Add( wd );
+
+        }
+    }
 }
