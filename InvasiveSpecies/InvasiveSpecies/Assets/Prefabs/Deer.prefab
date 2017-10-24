@@ -147,7 +147,7 @@ MonoBehaviour:
   critterType: Oak
   eatingRange: 0.5
   eatHPPerSecond: 5
-  eatHP2Energy: 10
+  eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
   order: 2
@@ -176,7 +176,7 @@ MonoBehaviour:
   critterType: AppleTree
   eatingRange: 0.5
   eatHPPerSecond: 5
-  eatHP2Energy: 10
+  eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
   order: 1
@@ -196,6 +196,7 @@ MonoBehaviour:
   energyPerSecond: 5
   speed: 0.5
   critterType: Deer
+  SeekRadius: 5
   isInHedge: 0
 --- !u!114 &114900917682121488
 MonoBehaviour:
@@ -225,7 +226,7 @@ MonoBehaviour:
   critterType: Grass
   eatingRange: 0.5
   eatHPPerSecond: 5
-  eatHP2Energy: 10
+  eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
   order: 0

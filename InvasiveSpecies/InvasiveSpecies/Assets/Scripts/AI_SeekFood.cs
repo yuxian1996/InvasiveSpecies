@@ -87,14 +87,17 @@ public class AI_SeekFood : MonoBehaviour {
 			// No valid food targets exist.
 			return;
 		}
+    
+        if (myCritter.critterType == "Rabbit")
+            Debug.Log(closest);
 
-		if(dist < eatingRange) {
+        if (dist < eatingRange) {
 			float hpEaten = Mathf.Clamp(eatHPPerSecond * Time.deltaTime, 0, closest.health);
 			closest.health -= hpEaten;
-			myCritter.energy += hpEaten * hpEaten;
+			myCritter.energy += hpEaten * eatHP2Energy;
 		}
 		else {
-			// Now we want to move towards this closest edible critter
+            // Now we want to move towards this closest edible critter
 
 			Vector3 dir = closest.transform.position - this.transform.position;
 
@@ -106,7 +109,7 @@ public class AI_SeekFood : MonoBehaviour {
                 if (agent)
                 {
                     NavMeshPath path = new NavMeshPath();
-                    agent.CalculatePath(dir * 0.1f + transform.position, path);
+                    agent.CalculatePath(closest.transform.position, path);
                     if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()) )
                     {
                         if(myCritter.pathOrder[PathType.SEEKFOOD.ToString()] >= order)
@@ -118,7 +121,10 @@ public class AI_SeekFood : MonoBehaviour {
                     else
                     {
                         myCritter.paths.Add(PathType.SEEKFOOD.ToString(), path);
-                        myCritter.pathOrder.Add(PathType.SEEKFOOD.ToString(), order);
+                        if(myCritter.pathOrder.ContainsKey(PathType.SEEKFOOD.ToString()))
+                            myCritter.pathOrder[PathType.SEEKFOOD.ToString()] = order;
+                        else
+                            myCritter.pathOrder.Add(PathType.SEEKFOOD.ToString(), order);
                     }
                 }
             }

@@ -158,6 +158,7 @@ MonoBehaviour:
   energyPerSecond: 5
   speed: 0.5
   critterType: Vulture
+  SeekRadius: 5
   isInHedge: 0
 --- !u!114 &114900917682121488
 MonoBehaviour:
@@ -172,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critterType: Fox
   safeDistance: 1
+  order: 0
 --- !u!114 &114917677410460484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +191,7 @@ MonoBehaviour:
   eatHP2Energy: 10
   hungerThreshold: 40
   isHungry: 0
+  order: 0
 --- !u!136 &136193926011079940
 CapsuleCollider:
   m_ObjectHideFlags: 1

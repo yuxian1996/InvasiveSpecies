@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Ant
-  eatingRange: 0.5
+  eatingRange: 1
   eatHPPerSecond: 5
   eatHP2Energy: 5
   hungerThreshold: 40
@@ -180,9 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Vulture
-  eatingRange: 0.5
-  eatHPPerSecond: 34
-  eatHP2Energy: 30
+  eatingRange: 1
+  eatHPPerSecond: 5
+  eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
   order: 2
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Rabbit
-  eatingRange: 0.7
-  eatHPPerSecond: 34
-  eatHP2Energy: 30
+  eatingRange: 1
+  eatHPPerSecond: 5
+  eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
   order: 0

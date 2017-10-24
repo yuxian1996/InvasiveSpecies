@@ -53,7 +53,8 @@ public class Critter : MonoBehaviour {
 
 	void OnDestroy() {
 		// Remove us from the crittersByType list.
-		crittersByType[critterType].Remove(this);
+        if(crittersByType.ContainsKey(critterType))
+		    crittersByType[critterType].Remove(this);
 	}
 	
 	// Update is called once per frame
@@ -67,10 +68,8 @@ public class Critter : MonoBehaviour {
 		}
 
 		if(health <= 0) {
-			// We have been killed.
-			// TODO: We could Instantiate a "death" object that has a
-			// a play-once sound and a "splatter" effect.  Maybe leave
-			// bones behind?
+            //change this object to carcasse
+            SceneManager.createCarcasse(transform);
 			Destroy(gameObject);
 			return;
 		}
@@ -91,15 +90,22 @@ public class Critter : MonoBehaviour {
         if (paths.ContainsKey(PathType.EVADE.ToString()))
         {
             agent.SetPath(paths[PathType.EVADE.ToString()]);
+            if (critterType == "Rabbit")
+                Debug.Log("evade");
+
         }
         else if (paths.ContainsKey(PathType.SEEKFOOD.ToString()))
         {
             agent.SetPath(paths[PathType.SEEKFOOD.ToString()]);
-
+            if (critterType == "Rabbit")
+                Debug.Log("seekfood");
         }
         else if (paths.ContainsKey(PathType.WANDER.ToString()))
         {
             agent.SetPath(paths[PathType.WANDER.ToString()]);
+            if (critterType == "Rabbit")
+                Debug.Log("wander");
+
         }
 
 

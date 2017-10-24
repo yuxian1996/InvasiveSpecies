@@ -159,6 +159,7 @@ MonoBehaviour:
   energyPerSecond: 5
   speed: 0.5
   critterType: Rabbit
+  SeekRadius: 5
   isInHedge: 0
 --- !u!114 &114900917682121488
 MonoBehaviour:
@@ -186,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Grass
-  eatingRange: 0.5
+  eatingRange: 2
   eatHPPerSecond: 5
   eatHP2Energy: 10
   hungerThreshold: 40
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Apple
-  eatingRange: 0.5
+  eatingRange: 2
   eatHPPerSecond: 5
   eatHP2Energy: 10
   hungerThreshold: 40

@@ -82,16 +82,17 @@ public class AI_EvadeCritterType : MonoBehaviour {
                 }
                 if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
                 {
-                    if (myCritter.pathOrder[PathType.EVADE.ToString()] >= order)
-                    {
-                        myCritter.paths[PathType.EVADE.ToString()] = path;
-                        myCritter.pathOrder[PathType.EVADE.ToString()] = order;
-                    }
+                    myCritter.paths[PathType.EVADE.ToString()] = path;
+                    //if (myCritter.pathOrder[PathType.EVADE.ToString()] >= order)
+                    //{
+                    //    myCritter.paths[PathType.EVADE.ToString()] = path;
+                    //    myCritter.pathOrder[PathType.EVADE.ToString()] = order;
+                    //}
                 }
                 else
                 {
                     myCritter.paths.Add(PathType.EVADE.ToString(), path);
-                    myCritter.pathOrder.Add(PathType.EVADE.ToString(), order);
+                   // myCritter.pathOrder.Add(PathType.EVADE.ToString(), order);
                 }
             }
         }
@@ -101,7 +102,7 @@ public class AI_EvadeCritterType : MonoBehaviour {
             if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
             {
                 myCritter.paths.Clear();
-                myCritter.pathOrder.Clear();
+                //myCritter.pathOrder.Clear();
             }
         }
 
