@@ -39,19 +39,15 @@ GameObject:
   - component: {fileID: 23661722638723098}
   - component: {fileID: 136821583674392318}
   - component: {fileID: 195105818036405286}
+  - component: {fileID: 114421255153827974}
   - component: {fileID: 54795199226640612}
-  - component: {fileID: 114176110075488064}
-  - component: {fileID: 114415152426974118}
-  - component: {fileID: 114783499883938380}
-  - component: {fileID: 114914632915694366}
-  - component: {fileID: 114420494502510404}
-  - component: {fileID: 114889218081358584}
+  - component: {fileID: 114290313627920466}
   m_Layer: 0
-  m_Name: Bear
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4295320929560720
 Transform:
@@ -133,7 +129,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &114176110075488064
+--- !u!114 &114290313627920466
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -141,17 +137,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1459969537897606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34d5861a03ddb5b40bbff2e0ddf950bf, type: 3}
+  m_Script: {fileID: 11500000, guid: bdf7d5ee8651cba48a99822ec937e0c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  energy: 100
-  energyPerSecond: 5
-  speed: 1
-  critterType: Bear
-  SeekRadius: 10
-  isInHedge: 0
---- !u!114 &114415152426974118
+  foodClass:
+  - Food
+  foodTag: []
+  radius: 5
+--- !u!114 &114421255153827974
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -159,81 +152,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1459969537897606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc7d8c3ba7d90e4f8f4dd3a2f4bfaba, type: 3}
+  m_Script: {fileID: 11500000, guid: b018fa4bf01bbdc4c9d217bdf070237a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114420494502510404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459969537897606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critterType: Grass
-  eatingRange: 1
-  eatHPPerSecond: 5
-  eatHP2Energy: 5
-  hungerThreshold: 40
-  isHungry: 0
-  order: 2
---- !u!114 &114783499883938380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459969537897606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critterType: Deer
-  eatingRange: 1
-  eatHPPerSecond: 20
-  eatHP2Energy: 20
-  hungerThreshold: 40
-  isHungry: 0
-  order: 0
---- !u!114 &114889218081358584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459969537897606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critterType: Ant
-  eatingRange: 1
-  eatHPPerSecond: 5
-  eatHP2Energy: 5
-  hungerThreshold: 40
-  isHungry: 0
-  order: 3
---- !u!114 &114914632915694366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1459969537897606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  critterType: Apple
-  eatingRange: 1
-  eatHPPerSecond: 5
-  eatHP2Energy: 5
-  hungerThreshold: 40
-  isHungry: 0
-  order: 1
+  target: {fileID: 0}
 --- !u!136 &136821583674392318
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -256,13 +178,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2
-  m_Acceleration: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
@@ -281,7 +203,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a754ffa9610f74646830cd018141b396, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
