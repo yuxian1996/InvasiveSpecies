@@ -1,9 +1,9 @@
-InvasiveSpecies/[Ll]ibrary/
-InvasiveSpecies/[Tt]emp/
-InvasiveSpecies/[Oo]bj/
-InvasiveSpecies/[Bb]uild/
-InvasiveSpecies/[Bb]uilds/
-InvasiveSpecies/Assets/AssetStoreTools*
+InvasiveSpecies/InvasiveSpecies/[Ll]ibrary/
+InvasiveSpecies/InvasiveSpecies/[Tt]emp/
+InvasiveSpecies/InvasiveSpecies/[Oo]bj/
+InvasiveSpecies/InvasiveSpecies/[Bb]uild/
+InvasiveSpecies/InvasiveSpecies/[Bb]uilds/
+InvasiveSpecies/InvasiveSpecies/Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
 /.vs/
