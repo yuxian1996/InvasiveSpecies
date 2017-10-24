@@ -105,6 +105,8 @@ Assets/Scripts/FindPath.cs
 Assets/Scripts/UI/DragHandler.cs
 Assets/Scripts/UI/DropHandler.cs
 Assets/Scripts/UI/GameSystem.cs
+Assets/Scripts/UI/MouseBehaviour.cs
+Assets/Scripts/UI/MouseBehaviour1.cs
 Assets/Scripts/UI/MovementTest.cs
 Assets/Scripts/UI/Slot.cs
 -r:"C:\Program Files\Unity (2017.1.0f3)\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"

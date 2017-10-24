@@ -23,6 +23,7 @@
 -define:UNITY_2017
 -define:PLATFORM_ARCH_64
 -define:UNITY_64
+-define:UNITY_ANALYTICS
 -define:ENABLE_AUDIO
 -define:ENABLE_CACHING
 -define:ENABLE_CLOTH
@@ -101,6 +102,13 @@
 -define:UNITY_PRO_LICENSE
 Assets/Scripts/FindFood.cs
 Assets/Scripts/FindPath.cs
+Assets/Scripts/UI/DragHandler.cs
+Assets/Scripts/UI/DropHandler.cs
+Assets/Scripts/UI/GameSystem.cs
+Assets/Scripts/UI/MouseBehaviour.cs
+Assets/Scripts/UI/MouseBehaviour1.cs
+Assets/Scripts/UI/MovementTest.cs
+Assets/Scripts/UI/Slot.cs
 -r:"C:\Program Files\Unity (2017.1.0f3)\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
 -r:"C:\Program Files\Unity (2017.1.0f3)\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"
 -r:"C:\Program Files\Unity (2017.1.0f3)\Editor\Data\Mono\lib\mono\unity\UnityScript.dll"
