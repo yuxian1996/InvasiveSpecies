@@ -29,7 +29,7 @@ public class MouseBehaviour : MonoBehaviour {
             infoWindowRect = GUI.Window(0, infoWindowRect, InfoWindow, this.name);
 
         if (_mouseClick)
-            GUI.TextField(speechBubbleRect, "Hello World! I belive this is my first thought...");
+            GUI.TextField(speechBubbleRect, "Hello World! I belive this is my first thought..."); //This will eventually take input from critter.cs (a string)
     }
 
     private void OnMouseDown()
