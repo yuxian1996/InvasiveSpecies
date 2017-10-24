@@ -80,19 +80,15 @@ public class AI_EvadeCritterType : MonoBehaviour {
                     dir = rotation * dir;
                     agent.CalculatePath(dir + transform.position, path);
                 }
+
+                //set path
                 if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
                 {
                     myCritter.paths[PathType.EVADE.ToString()] = path;
-                    //if (myCritter.pathOrder[PathType.EVADE.ToString()] >= order)
-                    //{
-                    //    myCritter.paths[PathType.EVADE.ToString()] = path;
-                    //    myCritter.pathOrder[PathType.EVADE.ToString()] = order;
-                    //}
                 }
                 else
                 {
                     myCritter.paths.Add(PathType.EVADE.ToString(), path);
-                   // myCritter.pathOrder.Add(PathType.EVADE.ToString(), order);
                 }
             }
         }
@@ -102,7 +98,6 @@ public class AI_EvadeCritterType : MonoBehaviour {
             if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
             {
                 myCritter.paths.Clear();
-                //myCritter.pathOrder.Clear();
             }
         }
 

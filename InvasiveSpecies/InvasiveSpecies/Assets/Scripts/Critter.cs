@@ -87,24 +87,19 @@ public class Critter : MonoBehaviour {
         if (!agent)
             return;
 
+        //move
         if (paths.ContainsKey(PathType.EVADE.ToString()))
         {
             agent.SetPath(paths[PathType.EVADE.ToString()]);
-            if (critterType == "Rabbit")
-                Debug.Log("evade");
 
         }
         else if (paths.ContainsKey(PathType.SEEKFOOD.ToString()))
         {
             agent.SetPath(paths[PathType.SEEKFOOD.ToString()]);
-            if (critterType == "Rabbit")
-                Debug.Log("seekfood");
         }
         else if (paths.ContainsKey(PathType.WANDER.ToString()))
         {
             agent.SetPath(paths[PathType.WANDER.ToString()]);
-            if (critterType == "Rabbit")
-                Debug.Log("wander");
 
         }
 

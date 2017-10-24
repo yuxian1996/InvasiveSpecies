@@ -31,8 +31,6 @@ public class AI_Wanders : MonoBehaviour {
 
     void SetNewDir()
     {
-        fromDir = Random.onUnitSphere;
-        toDir = Random.onUnitSphere;
 
         if (speed == 0)
             speed = 1;
@@ -42,7 +40,16 @@ public class AI_Wanders : MonoBehaviour {
         if(agent)
         {
             NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath((toDir - fromDir) + transform.position, path);
+            Vector3 dir = GenerateNewDir();
+            agent.CalculatePath(dir + transform.position, path);
+            //change direction
+            while (path.status == NavMeshPathStatus.PathInvalid)
+            {
+                dir = GenerateNewDir();
+                agent.CalculatePath(dir + transform.position, path);
+            }
+
+            //set path
             if (myCritter.paths.ContainsKey(PathType.WANDER.ToString()))
                 myCritter.paths[PathType.WANDER.ToString()] = path;
             else
@@ -51,18 +58,24 @@ public class AI_Wanders : MonoBehaviour {
 
     }
 
-	//void DoAIBehaviour() {
-	//	Vector3 dir = toDir - fromDir;
- //       WeightedDirection wd;
+    Vector3 GenerateNewDir()
+    {
+        fromDir = Random.onUnitSphere;
+        toDir = Random.onUnitSphere;
+        return toDir - fromDir;
+    }
+    //void DoAIBehaviour() {
+    //	Vector3 dir = toDir - fromDir;
+    //       WeightedDirection wd;
 
- //       if (hunger.isHungry == false)
- //           wd = new WeightedDirection(dir, 0.01f, speed, WeightedDirection.BlendingType.FALLBACK);
- //       else
- //           wd = new WeightedDirection(dir, 0);
+    //       if (hunger.isHungry == false)
+    //           wd = new WeightedDirection(dir, 0.01f, speed, WeightedDirection.BlendingType.FALLBACK);
+    //       else
+    //           wd = new WeightedDirection(dir, 0);
 
- //       myCritter.desiredDirections.Add( wd );
+    //       myCritter.desiredDirections.Add( wd );
 
 
-	//}
+    //}
 
 }
