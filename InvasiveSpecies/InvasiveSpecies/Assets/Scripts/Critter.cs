@@ -16,6 +16,8 @@ public class Critter : MonoBehaviour {
 
 	public string critterType = "Vegetable";
 
+    public float SeekRadius = 1.0f;
+
 	static public Dictionary<string, List<Critter>> crittersByType;
 
 	Vector3 velocity;
@@ -26,6 +28,7 @@ public class Critter : MonoBehaviour {
 
     public Dictionary<string, NavMeshPath> paths;
     public Dictionary<string, int> pathOrder;
+
     NavMeshAgent agent;
 
 

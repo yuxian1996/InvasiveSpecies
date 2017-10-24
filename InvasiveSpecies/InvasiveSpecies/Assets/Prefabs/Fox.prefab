@@ -166,6 +166,7 @@ MonoBehaviour:
   energyPerSecond: 5
   speed: 1
   critterType: Fox
+  SeekRadius: 5
   isInHedge: 0
 --- !u!114 &114397255051360456
 MonoBehaviour:
@@ -180,8 +181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critterType: Vulture
   eatingRange: 0.5
-  eatHPPerSecond: 5
-  eatHP2Energy: 5
+  eatHPPerSecond: 34
+  eatHP2Energy: 30
   hungerThreshold: 40
   isHungry: 0
   order: 2
@@ -208,9 +209,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   critterType: Rabbit
-  eatingRange: 0.5
-  eatHPPerSecond: 5
-  eatHP2Energy: 5
+  eatingRange: 0.7
+  eatHPPerSecond: 34
+  eatHP2Energy: 30
   hungerThreshold: 40
   isHungry: 0
   order: 0

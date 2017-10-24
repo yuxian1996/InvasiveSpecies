@@ -76,7 +76,7 @@ public class AI_SeekFood : MonoBehaviour {
 
             //Debug.Log("eat dammit!" + d);
 
-            if (closest == null || d < dist) {
+            if (d < myCritter.SeekRadius && (closest == null || d < dist)) {
 				closest = c;
 				dist = d;
 			}
@@ -91,7 +91,7 @@ public class AI_SeekFood : MonoBehaviour {
 		if(dist < eatingRange) {
 			float hpEaten = Mathf.Clamp(eatHPPerSecond * Time.deltaTime, 0, closest.health);
 			closest.health -= hpEaten;
-			myCritter.energy += hpEaten * eatHP2Energy;
+			myCritter.energy += hpEaten * hpEaten;
 		}
 		else {
 			// Now we want to move towards this closest edible critter
