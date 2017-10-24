@@ -148,7 +148,7 @@ MonoBehaviour:
   energy: 100
   energyPerSecond: 5
   speed: 1
-  critterType: Carnivore
+  critterType: Bear
   isInHedge: 0
 --- !u!114 &114415152426974118
 MonoBehaviour:
@@ -178,6 +178,7 @@ MonoBehaviour:
   eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
+  order: 2
 --- !u!114 &114783499883938380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,6 +196,7 @@ MonoBehaviour:
   eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
+  order: 0
 --- !u!114 &114889218081358584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,6 +214,7 @@ MonoBehaviour:
   eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
+  order: 3
 --- !u!114 &114914632915694366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,6 +232,7 @@ MonoBehaviour:
   eatHP2Energy: 5
   hungerThreshold: 40
   isHungry: 0
+  order: 1
 --- !u!136 &136821583674392318
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -251,8 +255,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 4
-  m_Acceleration: 8
+  m_Speed: 2
+  m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 0
   m_StoppingDistance: 0
@@ -276,7 +280,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a754ffa9610f74646830cd018141b396, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

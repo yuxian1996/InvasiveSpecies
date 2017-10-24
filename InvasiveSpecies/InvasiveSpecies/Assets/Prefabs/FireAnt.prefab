@@ -49,7 +49,7 @@ GameObject:
   m_Layer: 8
   m_Name: FireAnt
   m_TagString: Untagged
-  m_Icon: {fileID: -2349822300998112484, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
   energy: 100
   energyPerSecond: 5
   speed: 0.5
-  critterType: Herbivore
+  critterType: Ant
   isInHedge: 0
 --- !u!114 &114520122169682604
 MonoBehaviour:
@@ -178,6 +178,7 @@ MonoBehaviour:
   eatHP2Energy: 10
   hungerThreshold: 40
   isHungry: 0
+  order: 1
 --- !u!114 &114657224515953254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critterType: Fox
   safeDistance: 1
+  order: 0
 --- !u!114 &114900917682121488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -204,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   critterType: Bear
   safeDistance: 1
+  order: 0
 --- !u!114 &114917677410460484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,6 +224,7 @@ MonoBehaviour:
   eatHP2Energy: 10
   hungerThreshold: 40
   isHungry: 0
+  order: 0
 --- !u!136 &136193926011079940
 CapsuleCollider:
   m_ObjectHideFlags: 1

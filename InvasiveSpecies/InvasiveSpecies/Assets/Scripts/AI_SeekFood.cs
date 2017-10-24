@@ -14,6 +14,8 @@ public class AI_SeekFood : MonoBehaviour {
 
     public bool isHungry = false;
 
+    public int order = 0;
+
     private float speed;
 
 	Critter myCritter;
@@ -86,7 +88,6 @@ public class AI_SeekFood : MonoBehaviour {
 			return;
 		}
 
-        print(dist);
 		if(dist < eatingRange) {
 			float hpEaten = Mathf.Clamp(eatHPPerSecond * Time.deltaTime, 0, closest.health);
 			closest.health -= hpEaten;
@@ -106,17 +107,29 @@ public class AI_SeekFood : MonoBehaviour {
                 {
                     NavMeshPath path = new NavMeshPath();
                     agent.CalculatePath(dir * 0.1f + transform.position, path);
-                    if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()))
-                        myCritter.paths[PathType.SEEKFOOD.ToString()] = path;
+                    if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()) )
+                    {
+                        if(myCritter.pathOrder[PathType.SEEKFOOD.ToString()] >= order)
+                        {
+                            myCritter.paths[PathType.SEEKFOOD.ToString()] = path;
+                            myCritter.pathOrder[PathType.SEEKFOOD.ToString()] = order;
+                        }
+                    }
                     else
+                    {
                         myCritter.paths.Add(PathType.SEEKFOOD.ToString(), path);
+                        myCritter.pathOrder.Add(PathType.SEEKFOOD.ToString(), order);
+                    }
                 }
             }
             //clear path
             else
             {
                 if (myCritter.paths.ContainsKey(PathType.SEEKFOOD.ToString()))
+                {
                     myCritter.paths.Clear();
+                    myCritter.pathOrder.Clear();
+                }
             }
 
             //else

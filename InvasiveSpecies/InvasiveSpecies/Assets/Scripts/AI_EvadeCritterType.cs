@@ -9,6 +9,8 @@ public class AI_EvadeCritterType : MonoBehaviour {
 
     public float safeDistance = 12f;
 
+    public int order = 0;
+
 	Critter myCritter;
 
     NavMeshAgent agent;
@@ -72,23 +74,35 @@ public class AI_EvadeCritterType : MonoBehaviour {
                 NavMeshPath path = new NavMeshPath();
                 agent.CalculatePath(dir+ transform.position, path);
                 //change direction
-                while(path.status == NavMeshPathStatus.PathInvalid)
+                while (path.status == NavMeshPathStatus.PathInvalid)
                 {
                     Quaternion rotation = Quaternion.Euler(0, 90 * Random.Range(0, 1) * 2 - 1, 0);
                     dir = rotation * dir;
                     agent.CalculatePath(dir + transform.position, path);
                 }
                 if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
-                    myCritter.paths[PathType.EVADE.ToString()] = path;
+                {
+                    if (myCritter.pathOrder[PathType.EVADE.ToString()] >= order)
+                    {
+                        myCritter.paths[PathType.EVADE.ToString()] = path;
+                        myCritter.pathOrder[PathType.EVADE.ToString()] = order;
+                    }
+                }
                 else
+                {
                     myCritter.paths.Add(PathType.EVADE.ToString(), path);
+                    myCritter.pathOrder.Add(PathType.EVADE.ToString(), order);
+                }
             }
         }
         //clear path
         else
         {
             if (myCritter.paths.ContainsKey(PathType.EVADE.ToString()))
+            {
                 myCritter.paths.Clear();
+                myCritter.pathOrder.Clear();
+            }
         }
 
 

@@ -25,6 +25,7 @@ public class Critter : MonoBehaviour {
 	public List<WeightedDirection> desiredDirections;
 
     public Dictionary<string, NavMeshPath> paths;
+    public Dictionary<string, int> pathOrder;
     NavMeshAgent agent;
 
 
@@ -44,6 +45,7 @@ public class Critter : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
 
         paths = new Dictionary<string, NavMeshPath>();
+        pathOrder = new Dictionary<string, int>();
 	}
 
 	void OnDestroy() {
@@ -86,16 +88,15 @@ public class Critter : MonoBehaviour {
         if (paths.ContainsKey(PathType.EVADE.ToString()))
         {
             agent.SetPath(paths[PathType.EVADE.ToString()]);
-
         }
         else if (paths.ContainsKey(PathType.SEEKFOOD.ToString()))
         {
             agent.SetPath(paths[PathType.SEEKFOOD.ToString()]);
+
         }
         else if (paths.ContainsKey(PathType.WANDER.ToString()))
         {
             agent.SetPath(paths[PathType.WANDER.ToString()]);
-           
         }
 
 
