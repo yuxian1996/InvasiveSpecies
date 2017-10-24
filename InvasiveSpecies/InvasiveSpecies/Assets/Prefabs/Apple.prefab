@@ -38,8 +38,9 @@ GameObject:
   - component: {fileID: 33849456599569272}
   - component: {fileID: 23164100840277504}
   - component: {fileID: 136690111429768446}
+  - component: {fileID: 114707321302417360}
   m_Layer: 0
-  m_Name: Tree
+  m_Name: Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -52,8 +53,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624008105911094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1707635, y: -1, z: 5.8748107}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -0.3923614, y: 1.0169139, z: 2.9475794}
+  m_LocalScale: {x: 0.32579586, y: 2, z: 1}
   m_Children:
   - {fileID: 4781170970122958}
   m_Father: {fileID: 0}
@@ -67,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 1551000817367740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 26.46122, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4124063366744862}
   m_RootOrder: 0
@@ -110,6 +111,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624008105911094}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114707321302417360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624008105911094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d5861a03ddb5b40bbff2e0ddf950bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  energy: 100
+  energyPerSecond: 0
+  speed: 0
+  critterType: Apple
+  SeekRadius: 1
+  isInHedge: 0
 --- !u!136 &136690111429768446
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -117,7 +136,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624008105911094}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -136,7 +155,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b28e7c334fa61b84a84dbcdc8917020a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
