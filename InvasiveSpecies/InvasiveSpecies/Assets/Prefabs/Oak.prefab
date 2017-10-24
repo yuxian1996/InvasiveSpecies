@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114707321302417360}
   - component: {fileID: 54336723126554486}
   m_Layer: 0
-  m_Name: Plant
+  m_Name: Oak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   energy: 100
   energyPerSecond: 0
   speed: 0
-  critterType: Vegetable
+  critterType: Oak
   isInHedge: 0
 --- !u!136 &136690111429768446
 CapsuleCollider:

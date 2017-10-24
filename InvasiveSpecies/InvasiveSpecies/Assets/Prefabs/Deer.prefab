@@ -41,11 +41,13 @@ GameObject:
   - component: {fileID: 195290740720358866}
   - component: {fileID: 54843866577639166}
   - component: {fileID: 114507623982703436}
+  - component: {fileID: 114310638088335150}
   - component: {fileID: 114900917682121488}
   - component: {fileID: 114917677410460484}
-  - component: {fileID: 114310638088335150}
+  - component: {fileID: 114352497450797696}
+  - component: {fileID: 114095887443005804}
   m_Layer: 8
-  m_Name: Herbivore
+  m_Name: Deer
   m_TagString: Untagged
   m_Icon: {fileID: -2349822300998112484, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 1
@@ -131,6 +133,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &114095887443005804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944238461533576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  critterType: Oak
+  eatingRange: 0.5
+  eatHPPerSecond: 5
+  eatHP2Energy: 10
+  hungerThreshold: 40
+  isHungry: 0
 --- !u!114 &114310638088335150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -142,6 +161,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc7d8c3ba7d90e4f8f4dd3a2f4bfaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114352497450797696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1944238461533576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  critterType: AppleTree
+  eatingRange: 0.5
+  eatHPPerSecond: 5
+  eatHP2Energy: 10
+  hungerThreshold: 40
+  isHungry: 0
 --- !u!114 &114507623982703436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7071be95a2455a143aba00b7b48e9b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  critterType: Carnivore
+  critterType: Bear
   safeDistance: 1
 --- !u!114 &114917677410460484
 MonoBehaviour:
@@ -183,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6381766a2575a984483322e362a88231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  critterType: Vegetable
+  critterType: Grass
   eatingRange: 0.5
   eatHPPerSecond: 5
   eatHP2Energy: 10
@@ -217,7 +253,7 @@ NavMeshAgent:
   m_AngularSpeed: 0
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
